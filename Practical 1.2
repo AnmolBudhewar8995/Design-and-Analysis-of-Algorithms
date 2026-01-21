@@ -1,0 +1,147 @@
+# DAA Practical 1.2 - Quick Sort Algorithm
+
+## Overview
+This practical demonstrates the **Quick Sort** algorithm, a fundamental Divide & Conquer sorting technique implemented in two programming languages:
+- Python
+- Java
+
+## Quick Sort Algorithm
+
+### What is Quick Sort?
+Quick Sort is an efficient, comparison-based sorting algorithm that uses the Divide & Conquer strategy. It works by selecting a 'pivot' element and partitioning the array around it, such that elements less than the pivot come before it and elements greater than the pivot come after it.
+
+### Algorithm Steps:
+1. **Choose a pivot** - Select an element from the array (typically the last element)
+2. **Partition** - Rearrange the array so that all elements smaller than the pivot come before it, and all larger elements come after it
+3. **Recursively sort** - Apply the same process to the left and right sub-arrays
+4. **Combine** - The sub-arrays are already sorted, so no additional work is needed
+
+### Time Complexity:
+| Case | Complexity | Description |
+|------|------------|-------------|
+| Best | O(n log n) | Balanced partitions |
+| Average | O(n log n) | Random pivot selection |
+| Worst | O(n²) | Already sorted or reverse sorted array |
+
+### Space Complexity: O(log n) (due to recursive stack)
+
+## Files
+
+| File | Description |
+|------|-------------|
+| `1.2 Practical.py` | Python implementation of Quick Sort |
+| `1.2Practical.java` | Java implementation of Quick Sort |
+| `1.2 Practical.pdf` | Practical assignment document |
+
+## Running the Code
+
+### Python
+```bash
+python "1.2 Practical.py"
+```
+
+### Java
+```bash
+javac 1.2Practical.java
+java QuickSort
+```
+
+## Example Output
+
+**Python:**
+```
+Enter elements: 64 34 25 12 22 11 90
+Sorted array: [11, 12, 22, 25, 34, 64, 90]
+```
+
+**Java:**
+```
+Enter number of elements: 7
+Enter elements:
+64
+34
+25
+12
+22
+11
+90
+Sorted array:
+11 12 22 25 34 64 90
+```
+
+## Key Features
+- ✅ Takes user input for array elements
+- ✅ Implements standard Lomuto partition scheme
+- ✅ Recursively sorts left and right partitions
+- ✅ Demonstrates Divide & Conquer paradigm
+- ✅ Efficient for large datasets
+- ✅ In-place sorting algorithm
+
+## Algorithm Flow
+```
+Start
+  ↓
+Choose pivot (last element)
+  ↓
+Partition array:
+  - Initialize i = low - 1
+  - For j from low to high-1:
+    - If arr[j] ≤ pivot: increment i, swap arr[i] and arr[j]
+  ↓
+Swap arr[i+1] with arr[high] (pivot)
+  ↓
+Return pivot index (i+1)
+  ↓
+If low < high:
+  - Recursively sort left sub-array (low to pi-1)
+  - Recursively sort right sub-array (pi+1 to high)
+End
+```
+
+## Partition Process (Lomuto Scheme)
+```
+Example: [10, 80, 30, 90, 40] with pivot = 40
+
+Step 1: Compare each element with pivot
+        10 ≤ 40 → keep position
+        80 > 40 → skip
+        30 ≤ 40 → swap with 80
+        90 > 40 → skip
+
+Step 2: Final swap of pivot
+        Swap 40 with 30
+
+Result: [10, 30, 40, 90, 80]
+        Pivot index = 2
+```
+
+## Advantages of Quick Sort
+1. **Efficient**: O(n log n) average time complexity
+2. **In-place**: Requires minimal additional memory
+3. **Cache-friendly**: Good locality of reference
+4. **Versatile**: Works well with different data types
+5. **Practical**: Often faster than other O(n log n) algorithms in practice
+
+## Disadvantages of Quick Sort
+1. **Worst-case**: O(n²) for already sorted arrays
+2. **Unstable**: Does not preserve equal elements' order
+3. **Recursive depth**: Can cause stack overflow for large arrays
+4. **Pivot selection**: Performance depends on pivot choice
+
+## Optimization Tips
+- Choose pivot as median of first, middle, and last elements
+- Use random pivot selection
+- Switch to insertion sort for small sub-arrays
+- Implement tail recursion optimization
+
+## Requirements
+- Python 3.x
+- Java JDK 8+
+
+## Subject
+**Design and Analysis of Algorithms (DAA)**
+
+---
+
+*This practical is part of the DAA curriculum demonstrating fundamental sorting algorithms using the Divide & Conquer paradigm.*
+
